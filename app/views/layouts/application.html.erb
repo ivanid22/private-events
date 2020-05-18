@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% if session[:logged_in_user_name] %>
+      <h3>Welcome <%= session[:logged_in_user_name] %>! </h3>
+    <% else %>
+      <a href="/sign_in">Sign in</a>
+    <% end %>
     <%= yield %>
   </body>
 </html>

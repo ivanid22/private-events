@@ -29,6 +29,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def sign_in_view
+    render :sign_in_view
+  end
+
+  def sign_in
+    name = params[:name]
+    @user = User.find_by(name: name)
+    if @user
+      session[:logged_in_user_name] = @user.name
+      redirect_to user_path(@user)
+    else
+      render :sign_in_view
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
