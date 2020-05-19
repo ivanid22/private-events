@@ -38,6 +38,7 @@ class UsersController < ApplicationController
     @user = User.find_by(name: name)
     if @user
       session[:logged_in_user_name] = @user.name
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :sign_in_view
