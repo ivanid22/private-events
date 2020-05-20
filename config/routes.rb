@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :events
   get "/sign_in", to: "users#sign_in_view"
   post "/sign_in", to: "users#sign_in"
+
+  root "events#index"
 end
