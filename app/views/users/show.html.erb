@@ -4,10 +4,21 @@
 <p>email: <%= @user.email %> </p> 
 <p>address: <%= @user.address %> </p>
 
-<h3>events</h3>
+<h3>created events</h3>
 
 
 <% @user.created_events.each do |event| %>
+
+<p> <%= event.title %> </p>
+<p> <%= event.description %> </p>
+<p> <%= event.location %> </p>
+<p> <%= event.date %> </p>
+    
+<% end %>
+
+<h3>attended events</h3>
+
+<% @user.attended_events.each do |event| %>
 
 <p> <%= event.title %> </p>
 <p> <%= event.description %> </p>

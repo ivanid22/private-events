@@ -22,7 +22,11 @@ class EventsController < ApplicationController
       @event = @user.created_events.build(event_params)
       @user.save
 
-      redirect_to event_path(@event)
+      if @event.persisted?
+        redirect_to event_path(@event)
+      else
+        render :new
+      end
     else
       redirect_to sign_in_path
     end
