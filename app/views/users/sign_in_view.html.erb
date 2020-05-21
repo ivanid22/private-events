@@ -1,4 +1,9 @@
+
+
 <h1 class="title" >Hi</h1>
+<% if flash[:notice] %>
+   <div class="alert alert-danger" role="alert"> <%= flash[:notice] %>  </div>
+<% end %>
 <%= form_tag( '/sign_in', method: :post) do |f| %>
    <%= label_tag (:name) %>
    <%= text_field_tag (:name) %>

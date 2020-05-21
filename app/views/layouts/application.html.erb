@@ -17,6 +17,7 @@
 <div class="navbar-brand" >
    <% if session[:logged_in_user_name] %>
       <h3 class= "btn btn-primary" > Welcome <%= session[:logged_in_user_name] %>! </h3>
+      <a href="/sign_out" class= "btn btn-primary psn" >Sign out</a>
     <% else %>
       <a href="/sign_in" class= "btn btn-primary psn" >Sign in</a>
       <a href="/users/new" class= "btn btn-primary psn" >Sign up</a>

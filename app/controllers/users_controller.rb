@@ -39,8 +39,15 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      flash[:notice] = "Invalid user name"
       render :sign_in_view
     end
+  end
+
+  def sign_out
+    session[:logged_in_user_name] = nil
+    session[:user_id] = nil
+    redirect_to events_path
   end
 
   private

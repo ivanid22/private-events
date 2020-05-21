@@ -3,6 +3,9 @@ class User < ApplicationRecord
     has_many :invitations, class_name: "Invitation", foreign_key: "attendee_id"
     has_many :attended_events, class_name: "Event", through: :invitations, source: "attended_event"
 
+    validates :name, presence: true, uniqueness: { case_sensitive: false }
+    validates :email, presence: true, uniqueness: { case_sensitive: false }
+    
     def upcoming_events
        returned_events = [] 
        self.attended_events.each do |event|
