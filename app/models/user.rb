@@ -14,7 +14,7 @@ class User < ApplicationRecord
     def previous_events
         returned_events = [] 
         self.attended_events.each do |event|
-          returned_events << event if event.date <= Time.now
+          returned_events << event if event.date < Time.now
         end
         returned_events
     end

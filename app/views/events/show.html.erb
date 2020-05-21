@@ -1,12 +1,22 @@
-<h3>creator:<%= @event.creator.name %></h3>
+<h3 class= "title">creator: <%= @event.creator.name %></h3>
 
-<p> <%= @event.title %> </p>
-<p> <%= @event.description %> </p>
-<p> <%= @event.location %> </p>
-<p> <%= @event.date %> </p>
+<div class="row">
+  <div class="col-md-6">
+  <div class="card">
+  <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
 
+  <div class="card-body">
+    <h5 class="card-title"><%= @event.title %>  </h5>
+    <p class="card-text"><%= @event.description %></p>
+    <p class="card-text"><%= @event.location %> </p>
+    <p class="card-text"><%= @event.date %> </p>
+  
+  </div>
+ </div>
+ </div>
 
-<h3> Event attendees </h3>
+ <div class="col-md-6">
+ <h3 class="title"> Event attendees </h3>
 
 
 <% @event.attendees.each do |attendee| %>
@@ -14,3 +24,5 @@
     <%= attendee.name %>
   </p>
 <% end %>
+ </div>
+</div>

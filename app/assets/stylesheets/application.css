@@ -13,3 +13,93 @@
  *= require_tree .
  *= require_self
  */
+
+ .btn {
+    color: #fff;
+    text-transform: uppercase;
+ }
+
+ .card-title{
+
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+    font-size: 1.7em;
+    font-family: monospace;
+
+ }
+
+ .card-text{
+
+    text-align: center;
+    font-weight: 400;
+    font-family: cursive;
+    color: grey;
+    font-size: 1.2em;
+
+ }
+
+ .title {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: cursive;
+ }
+ 
+ .psn {
+    margin-top: -9px;
+ }
+
+ form label {
+    color: #6c7c9a;
+    font-size: .9em;
+    font-weight: bold;
+    line-height: 1.5em;
+    padding-bottom: .2em;
+    display: inline-block;
+    text-transform: uppercase;
+
+ }
+
+ .input, form input[type=text], form input[type=email] , form input[type=datetime_field], form textarea {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    padding: .3em .4em;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    color: #1f2d3e;
+    font-size: 1.3em;
+}
+
+.pos{
+    margin-top: 20px;
+}
+
+#event_date {
+    border-radius: 4px;
+    padding: 0.1em .4em;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    color: #1f2d3e;
+    margin-top: 25px;
+    font-size: 1.3em;
+}
+
+.let_log{
+    margin-top: 10px;
+}
+.col-md-3 {
+    padding-top: 10px;
+}
