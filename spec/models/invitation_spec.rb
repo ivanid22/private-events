@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Invitation, :type => :model do
+RSpec.describe Invitation, type: :model do
   before :each do
     User.create(name: 'abc', email: 'a@b.com', address: 'def')
     Event.create(title: 'test', date: Time.now, creator: User.first)

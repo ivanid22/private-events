@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Event, :type => :model do
-
+RSpec.describe Event, type: :model do
   before :each do
     test_user = User.create(name: 'testuser', email: 'test@domain.com', address: '1234 Street name')
     Event.create(title: 'test event', date: Time.now - 10.days, creator: test_user)
