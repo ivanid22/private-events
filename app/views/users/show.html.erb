@@ -1,67 +1,67 @@
 <p id="notice"><%= notice %></p>
-<div class ="row">
- <div class="col-md-4">
-   <div class="card">
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
 
-  <%= image_tag("man.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+            <%= image_tag("man.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
 
-  <div class="card-body">
-    <p class="card-text">name: <%= @user.name %></p>
-    <p class="card-text">email: <%= @user.email %>  </p>
-    <p class="card-text">address: <%= @user.address %></p>
-  
-  </div>
- </div>
+            <div class="card-body">
+                <p class="card-text">name: <%= @user.name %></p>
+                <p class="card-text">email: <%= @user.email %> </p>
+                <p class="card-text">address: <%= @user.address %></p>
 
-</div>
-<div class="col-md-4">
-<h3 class = "title">created events</h3>
+            </div>
+        </div>
 
-
-
-<% @user.created_events.each do |event| %>
-
-<div class="card">
-
-  <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
-
-  <div class="card-body">
-    <h5 class="card-title"><%= event.title %>  </h5>
-    <p class="card-text"><%= event.description %></p>
-    <p class="card-text"><%= event.location %> </p>
-    <p class="card-text"><%= event.date %> </p>
-  
-  </div>
- </div>
-
-
-<% end %>
-</div>
-
-<div class="col-md-4">
-<h3 class = "title">attended events</h3>
+    </div>
+    <div class="col-md-4">
+        <h3 class="title">created events</h3>
 
 
 
-<% @user.attended_events.each do |event| %>
+        <% @user.created_events.each do |event| %>
 
-<div class="card">
+        <div class="card">
 
-  <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+            <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
 
-  <div class="card-body">
-    <h5 class="card-title"><%= event.title %>  </h5>
-    <p class="card-text"><%= event.description %></p>
-    <p class="card-text"><%= event.location %> </p>
-    <p class="card-text"><%= event.date %> </p>
-  
-  </div>
- </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %> </h5>
+                <p class="card-text"><%= event.description %></p>
+                <p class="card-text"><%= event.location %> </p>
+                <p class="card-text"><%= event.date %> </p>
 
-<% end %>
+            </div>
+        </div>
 
 
-</div>
+        <% end %>
+    </div>
+
+    <div class="col-md-4">
+        <h3 class="title">attended events</h3>
+
+
+
+        <% @user.attended_events.each do |event| %>
+
+        <div class="card">
+
+            <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %> </h5>
+                <p class="card-text"><%= event.description %></p>
+                <p class="card-text"><%= event.location %> </p>
+                <p class="card-text"><%= event.date %> </p>
+
+            </div>
+        </div>
+
+        <% end %>
+
+
+    </div>
 </div>
 
 <%= link_to 'Back', events_path, class: 'btn btn-primary let_log'%>

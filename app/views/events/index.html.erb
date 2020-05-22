@@ -1,54 +1,52 @@
 <% if @events.upcoming.any? %>
-  <h3 class="title" >Upcoming events</h3>
+<h3 class="title">Upcoming events</h3>
 <% end %>
 
 
 <div class="row">
-<% @events.upcoming.each do |event| %>
-  <div class="col-md-3">
-  <div class="card">
-  <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+    <% @events.upcoming.each do |event| %>
+    <div class="col-md-3">
+        <div class="card">
+            <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
 
-  <div class="card-body">
-    <h5 class="card-title"><%= event.title %> </h5>
-    <p class="card-text"><%= event.description %> </p>
-    <p class="card-text"><%= event.location %> </p>
-    <p class="card-text"><%= event.date %> </p>
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %> </h5>
+                <p class="card-text"><%= event.description %> </p>
+                <p class="card-text"><%= event.location %> </p>
+                <p class="card-text"><%= event.date %> </p>
 
-   <%= link_to "show event", event_path(event), class: "btn btn-primary " %> 
-  
-  </div>
- </div>
- </div>
- <% end %>
+                <%= link_to "show event", event_path(event), class: "btn btn-primary " %>
+
+            </div>
+        </div>
+    </div>
+    <% end %>
 </div>
 
 
 <% if @events.past.any? %>
-  <h3 class="title">Past events</h3>
+<h3 class="title">Past events</h3>
 <% end %>
 
 <div class="row">
-<% @events.past.each do |event| %>
-  <div class="col-md-3">
-  <div class="card">
-  <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+    <% @events.past.each do |event| %>
+    <div class="col-md-3">
+        <div class="card">
+            <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
 
-  <div class="card-body">
-    <h5 class="card-title"><%= event.title %> </h5>
-    <p class="card-text"><%= event.description %> </p>
-    <p class="card-text"><%= event.location %> </p>
-    <p class="card-text"><%= event.date %> </p>
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %> </h5>
+                <p class="card-text"><%= event.description %> </p>
+                <p class="card-text"><%= event.location %> </p>
+                <p class="card-text"><%= event.date %> </p>
 
-     <%= link_to "show event", event_path(event), class: "btn btn-primary" %> 
-     
-  </div>
- </div>
- </div>
- <% end %>
+                <%= link_to "show event", event_path(event), class: "btn btn-primary" %>
+
+            </div>
+        </div>
+    </div>
+    <% end %>
 </div>
 
 <hr>
- <%= link_to "new event", new_event_path, class: "btn btn-primary" %> 
-
-
+<%= link_to "new event", new_event_path, class: "btn btn-primary" %>
