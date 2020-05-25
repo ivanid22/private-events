@@ -1,0 +1,11 @@
+<div class="row">
+    <% @invitations.each do |invitation| %>
+        <div class="col-12 col-md-4">
+            <p> You have been invited to <%= invitation.attended_event.title %>! </p>
+            <br>
+            <%= link_to  "Accept", invitation_accept_path(invitation), class: "btn btn-primary" %>
+            <%= link_to  "Decline", invitation_path(invitation), method: :delete, class: "btn btn-primary" %>
+            <hr>
+        </div>
+    <% end %>
+</div>
