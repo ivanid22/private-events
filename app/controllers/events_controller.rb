@@ -24,11 +24,14 @@ class EventsController < ApplicationController
       @user.save
 
       if @event.persisted?
+        flash[:notice] = "Event created successfully"
         redirect_to event_path(@event)
       else
+        flash[:notice] = "Couldn't create event"
         render :new
       end
     else
+      flash[:notice] = 'Please sign in to create an event'
       redirect_to sign_in_path
     end
   end

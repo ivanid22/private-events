@@ -4,6 +4,7 @@ class InvitationsController < ApplicationController
     if session[:user_id]
       @invitations = User.find(session[:user_id]).unaccepted_invitations
     else
+      flash[:notice] = "Please sign in to view invitations"
       redirect_to sign_in_path
     end
   end
@@ -30,10 +31,10 @@ class InvitationsController < ApplicationController
       @invitation = Invitation.new(invitation_params)
 
       if @invitation.save
-        flash[:success] = "Invitation successfully created"
+        flash[:notice] = "Invitation successfully created"
         redirect_to events_path
       else
-        flash[:error] = "Something went wrong"
+        flash[:notice] = "Failed to create invitation"
         render 'new'
       end
   end
@@ -41,10 +42,10 @@ class InvitationsController < ApplicationController
   def destroy
       @invitation = Invitation.find(params[:id])
       if @invitation.destroy
-          flash[:success] = 'Invitation was declined.'
+          flash[:notice] = 'Invitation was declined.'
           redirect_to invitations_path
       else
-          flash[:error] = 'Something went wrong'
+          flash[:notice] = 'Something went wrong'
           redirect_to invitations_path
       end
   end
