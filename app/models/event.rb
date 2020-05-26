@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   has_many :invitations, class_name: 'Invitation', foreign_key: 'attended_event_id'
-  has_many :attendees, class_name: 'User', through: :invitations, source: 'attendee'
+  has_many :attendees, through: :invitations, source: 'attendee'
 
   validates :date, presence: true
 

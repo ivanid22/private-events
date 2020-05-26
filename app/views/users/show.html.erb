@@ -13,8 +13,12 @@
             </div>
         </div>
 
-    </div>
-    <div class="col-md-4">
+    </div> <%# === .col-md-4 ====%>
+    
+</div><%# ===.row ====%>
+
+<div class="row">
+<div class="col-md-4">
         <h3 class="title">created events</h3>
 
 
@@ -39,11 +43,11 @@
     </div>
 
     <div class="col-md-4">
-        <h3 class="title">attended events</h3>
+        <h3 class="title">Upcoming events</h3>
 
 
 
-        <% @user.attended_events.each do |event| %>
+        <% @upcoming_events.each do |event| %>
 
         <div class="card">
 
@@ -62,6 +66,33 @@
 
 
     </div>
-</div>
+
+
+    <div class="col-md-4">
+        <h3 class="title">Previous Events</h3>
+
+
+
+        <% @prev_events.each do |event| %>
+
+        <div class="card">
+
+            <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %> </h5>
+                <p class="card-text"><%= event.description %></p>
+                <p class="card-text"><%= event.location %> </p>
+                <p class="card-text"><%= event.date %> </p>
+
+            </div>
+        </div>
+
+        <% end %>
+
+
+    </div>
+
+</div><%# ===.row ====%>
 
 <%= link_to 'Back', events_path, class: 'btn btn-primary let_log'%>

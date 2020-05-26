@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="navbar-brand">
             <% if session[:logged_in_user_name] %>
-            <h3 class="btn btn-primary"> Welcome <%= session[:logged_in_user_name] %>! </h3>
+            <%= link_to "Welcome #{session[:logged_in_user_name]}", user_path(User.find(session[:user_id])), class: "btn btn-primary" %> 
             <a href="/sign_out" class="btn btn-primary psn">Sign out</a>
             <% else %>
             <a href="/sign_in" class="btn btn-primary psn">Sign in</a>
@@ -33,6 +33,13 @@
                     <%= link_to "events", events_path, class: " btn btn-danger psn" %>
 
                 </li>
+
+                <li class="nav-item active">
+
+                    <%= link_to "invitations", invitations_path, class: " btn btn-primary psn inivites_btn" %>
+
+                </li>
+
 
             </ul>
         </div>

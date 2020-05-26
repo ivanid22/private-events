@@ -53,6 +53,25 @@
     margin-top: -9px;
  }
 
+ .inivites_btn{
+   margin-left: 10px;
+ }
+ 
+ .invited{
+   border: 1px solid grey;
+   padding: 20px;
+ }
+
+ .invited p {
+   text-transform: uppercase;
+   color: red;
+   font-weight: 600;
+ }
+
+ .jumbotron{
+    margin-top: 10px;
+ }
+ 
  form label {
     color: #6c7c9a;
     font-size: .9em;

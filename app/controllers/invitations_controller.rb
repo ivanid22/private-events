@@ -14,10 +14,11 @@ class InvitationsController < ApplicationController
 
     if @invitation.save
         flash[:success] = "Invitation accepted"
+
       else
         flash[:error] = "Something went wrong"
     end
-    redirect_to invitations_path
+    redirect_to events_path
   end
 
   def new

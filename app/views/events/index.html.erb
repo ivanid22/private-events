@@ -1,10 +1,6 @@
-<% if @events.upcoming.any? %>
 <h3 class="title">Upcoming events</h3>
-<% end %>
-
-
 <div class="row">
-    <% @events.upcoming.each do |event| %>
+    <% @upcoming_events.each do |event| %>
     <div class="col-md-3">
         <div class="card">
             <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
@@ -23,13 +19,11 @@
     <% end %>
 </div>
 
-
-<% if @events.past.any? %>
 <h3 class="title">Past events</h3>
-<% end %>
+
 
 <div class="row">
-    <% @events.past.each do |event| %>
+    <% @prev_events.each do |event| %>
     <div class="col-md-3">
         <div class="card">
             <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
