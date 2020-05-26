@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PrivateEvents</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# === bootstrap cdn ==== %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-brand">
+            <% if session[:logged_in_user_name] %>
+            <%= link_to "Welcome #{session[:logged_in_user_name]}", user_path(User.find(session[:user_id])), class: "btn btn-primary" %> 
+            <a href="/sign_out" class="btn btn-primary psn">Sign out</a>
+            <% else %>
+            <a href="/sign_in" class="btn btn-primary psn">Sign in</a>
+            <a href="/users/new" class="btn btn-primary psn">Sign up</a>
+            <% end %>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+
+                    <%= link_to "events", events_path, class: " btn btn-danger psn" %>
+
+                </li>
+
+                <li class="nav-item active">
+
+                    <%= link_to "invitations", invitations_path, class: " btn btn-primary psn inivites_btn" %>
+
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    <% if flash[:notice] %>
+        <div class="alert alert-danger" role="alert"> <%= flash[:notice] %> </div>
+    <% end %>
+        <%= yield %>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<h3 class="title">Upcoming events</h3>
+<div class="row">
+    <% @upcoming_events.each do |event| %>
+    <div class="col-md-3">
+        <div class="card">
+            <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %> </h5>
+                <p class="card-text"><%= event.description %> </p>
+                <p class="card-text"><%= event.location %> </p>
+                <p class="card-text"><%= event.date %> </p>
+
+                <%= link_to "show event", event_path(event), class: "btn btn-primary " %>
+
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<h3 class="title">Past events</h3>
+
+
+<div class="row">
+    <% @prev_events.each do |event| %>
+    <div class="col-md-3">
+        <div class="card">
+            <%= image_tag("rss.jpg", :alt => "Card image cap", :class => "card-img-top" )  %>
+
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %> </h5>
+                <p class="card-text"><%= event.description %> </p>
+                <p class="card-text"><%= event.location %> </p>
+                <p class="card-text"><%= event.date %> </p>
+
+                <%= link_to "show event", event_path(event), class: "btn btn-primary" %>
+
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<hr>
+<%= link_to "new event", new_event_path, class: "btn btn-primary" %>
