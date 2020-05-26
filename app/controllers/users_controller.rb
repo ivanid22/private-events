@@ -3,7 +3,10 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show; end
+  def show
+    @user = User.find(params[:id])
+
+  end
 
   # GET /users/new
   def new
@@ -17,8 +20,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        session[:user_id] = @user.id
+        session[:logged_in_user_name] = @user.name
+        format.html { redirect_to events_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
+
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

@@ -4,9 +4,9 @@ class User < ApplicationRecord
   has_many :accepted_invitations, -> {where(accepted: true)}, class_name: 'Invitation', foreign_key: 'attendee_id'
   has_many :unaccepted_invitations, -> {where(accepted: false)}, class_name: 'Invitation', foreign_key: 'attendee_id'
 
-  has_many :attended_events, class_name: 'Event', through: :invitations, source: 'attended_event'
-  has_many :accepted_events, class_name: 'Event', through: :accepted_invitations, source: 'attended_event'
-  has_many :unaccepted_events, class_name: 'Event', through: :unaccepted_invitations, source: 'attended_event'
+  has_many :attended_events, class_name: 'Event', through: :accepted_invitations, source: 'attended_event'
+
+ # has_many :accepted_events, class_name: 'Event', through: :accepted_invitations, source: 'attended_event'
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
