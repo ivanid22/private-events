@@ -12,10 +12,9 @@ RSpec.describe 'invitations feature tests', type: :system do
     fill_in 'Name', with: 'host'
     click_button 'Sign in'
     visit('/invitations/new')
-    select "guest", :from => "invitation[attendee_id]"
-    select "test event", :from => "invitation[attended_event_id]"
+    select 'guest', from: 'invitation[attendee_id]'
+    select 'test event', from: 'invitation[attended_event_id]'
     click_button 'Create Invitation'
-    expect(page).to have_content("Invitation successfully created")
+    expect(page).to have_content('Invitation successfully created')
   end
-
 end

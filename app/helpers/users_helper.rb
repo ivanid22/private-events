@@ -1,6 +1,7 @@
 module UsersHelper
   def all_other_users
     return [] if session[:user_id].nil?
+
     users = User.all
     filtered_users = []
     users.each do |u|

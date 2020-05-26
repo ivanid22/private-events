@@ -24,7 +24,7 @@ class EventsController < ApplicationController
       @user.save
 
       if @event.persisted?
-        flash[:notice] = "Event created successfully"
+        flash[:notice] = 'Event created successfully'
         redirect_to event_path(@event)
       else
         flash[:notice] = "Couldn't create event"
